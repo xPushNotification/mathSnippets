@@ -1,0 +1,15 @@
+var arc={
+ cx:150, cy:150,
+ innerRadius:75, outerRadius:100,
+ startAngle:0, endAngle:Math.PI
+}
+function isPointInArc(x,y,arc){
+ var dx=x-arc.cx;
+ var dy=y-arc.cy;
+ var dxy=dx*dx+dy*dy;
+ var rrOuter=arc.outerRadius*arc.outerRadius;
+ var rrInner=arc.innerRadius*arc.innerRadius;
+ if(dxy<rrInner || dxy>rrOuter){return(false);}
+ var angle=(Math.atan2(dy,dx)+PI2)%PI2;
+ return(angle>=arc.startAngle && angle<=arc.endAngle);
+}
