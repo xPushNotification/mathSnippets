@@ -1,0 +1,16 @@
+// wedge objects: {cx:,cy:,radius:,startAngle:,endAngle:}
+// var wedge={
+// cx:150, cy:150, // centerpoint
+// radius:100,
+// startAngle:0, endAngle:Math.PI
+// }
+// Return true if the x,y point is inside the closed wedge
+function isPointInWedge(x,y,wedge){
+ var PI2=Math.PI*2;
+ var dx=x-wedge.cx;
+ var dy=y-wedge.cy;
+ var rr=wedge.radius*wedge.radius;
+ if(dx*dx+dy*dy>rr){return(false);}
+ var angle=(Math.atan2(dy,dx)+PI2)%PI2;
+ return(angle>=wedge.startAngle && angle<=wedge.endAngle);
+}
